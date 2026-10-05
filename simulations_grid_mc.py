@@ -18,7 +18,7 @@ solution analysis of the impact-based Cobb-Douglas networked public-goods model
     Random preference profiles B_i drawn i.i.d. from several Beta distributions;
     G groups per replication, R replications to obtain Monte-Carlo standard
     errors on the summary statistics (mean contribution by position, corner
-    probability, P(periphery > center), mean material welfare). A convergence
+    probability, P(periphery > center), mean social efficiency). A convergence
     diagnostic tracks the running estimate against the number of draws.
     Outputs: montecarlo_summary.csv, fig5_montecarlo_convergence.png
 
@@ -83,15 +83,16 @@ def equilibrium_batch(B, topo, beta=BETA0, e=E, iters=600, tol=1e-12):
     return c
 
 
-def welfare(c, topo, beta=BETA0, e=E):
-    """Material welfare W = n e + sum_i (sigma_i - 1) c_i, sigma_i = sum_{k in N[i]} beta/d_k."""
+def social_efficiency(c, topo, beta=BETA0, e=E):
+    """Social efficiency (aggregate material payoff)
+    SE = n e + sum_i (s_i - 1) c_i,  s_i = sum_{k in N[i]} beta/d_k  (marginal social return)."""
     if topo == "regular":
-        sigma = np.array([beta, beta, beta])               # regular: sigma_i = beta
+        s = np.array([beta, beta, beta])                   # regular: s_i = beta
     else:
         s_c = beta / 3 + 2 * (beta / 2)                     # center
         s_l = beta / 2 + beta / 3                           # leaf
-        sigma = np.array([s_c, s_l, s_l])
-    return N * e + (c * (sigma[None, :] - 1.0)).sum(axis=1)
+        s = np.array([s_c, s_l, s_l])
+    return N * e + (c * (s[None, :] - 1.0)).sum(axis=1)
 
 
 # ----------------------------------------------------------------------
@@ -205,8 +206,8 @@ def mc_statistics(c_reg, c_star):
         corner_reg=(c_reg >= E - 1e-6).mean(),
         corner_star=((c_star >= E - 1e-6).mean()),
         p_periphery_gt_center=np.mean(c_star[:, 1:].mean(axis=1) > c_star[:, 0]),
-        welfare_reg=welfare(c_reg, "regular").mean(),
-        welfare_star=welfare(c_star, "star").mean(),
+        social_efficiency_reg=social_efficiency(c_reg, "regular").mean(),
+        social_efficiency_star=social_efficiency(c_star, "star").mean(),
     )
 
 
@@ -216,7 +217,7 @@ def montecarlo(G=6000, R=30, seed0=20260620):
         reps = {k: [] for k in
                 ("mean_reg", "mean_star_center", "mean_star_periphery",
                  "corner_reg", "corner_star", "p_periphery_gt_center",
-                 "welfare_reg", "welfare_star")}
+                 "social_efficiency_reg", "social_efficiency_star")}
         for r in range(R):
             rng = np.random.default_rng(seed0 + r)
             B = rng.beta(a, b, size=(G, N))
