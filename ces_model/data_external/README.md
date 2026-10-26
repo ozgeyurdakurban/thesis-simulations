@@ -12,3 +12,7 @@ https://doi.org/10.11588/DATA/GANTNY (access restricted; raw data are not redist
 
 File used: `WS_data_noIP_noMTID_panel.dta` (within-subject sample; 113 participants, 7 environments, 791 observations,
 one online session on 9 July 2015). Precomputed outputs are in `../data/diederich_*.csv`.
+
+## Further data used
+- Between-subjects file `BS_data_noIP_noMTID.dta` of the same Diederich et al. package (558 participants) for `sim11_diederich_between.py`.
+- Karlan, D. and List, J. A. (2007), Does price matter in charitable giving? Evidence from a large-scale natural field experiment, *American Economic Review* 97(5), 1774-1793. Data: Karlan, D. and List, J. A. (2014), Harvard Dataverse, V4, https://doi.org/10.7910/DVN/27853 (UNF:5:C63Hp69Cn88CkFCoOA0N/w==; Innovations for Poverty Action Dataverse). File `AER merged.dta`, place in `data_external/karlan_list_2007_dataverse/` for `sim12_karlan_list.py`.

@@ -50,3 +50,5 @@ Run time: about two minutes for sim01-sim04; sim05-sim07 take roughly 5-10 minut
 | `sim10_diederich_estimation.py` | interval-censored (ordered-probit-type) likelihood for (sigma, lambda, B, s), variants mix/frame -> `data/diederich_estimates.csv` |
 | `sim10b_diederich_profile.py` | sigma by format, LR for sigma = 1, profile likelihood over lambda -> `data/diederich_sigma_by_format.csv`, `data/diederich_profile_lambda.csv` |
 | `sim09` (extended) | noise grid adds s = 1.2, 2.5; pooled results for s = 2.5 with N = 113 and 1000 (env POOLED_ONLY, POOL_SETTINGS) |
+| `sim11_diederich_between.py` | same likelihood on the between-subjects sample (n = 558) of Diederich et al. -> `data/diederich_bs_*.csv` |
+| `sim12_karlan_list.py` | Karlan and List (2007), 50,083 donors, control and 1:1, 2:1, 3:1 matches (Harvard Dataverse doi:10.7910/DVN/27853, V4): minimum-distance (sigma, lambda) from mean-gift ratios, bootstrap -> `data/karlan_list_*.csv` |
