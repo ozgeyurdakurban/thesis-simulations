@@ -1,5 +1,5 @@
 """sim10: population-level estimation of (sigma, lambda, B) on the Diederich-Eckel-Epperson-Goeschl-Grossman
-(Experimental Economics, forthcoming) within-subject panel (113 MTurk subjects x 7 cells).
+(Experimental Economics 25, 734-758, 2022; data: heiDATA, doi:10.11588/DATA/GANTNY, v1.1, restricted access) within-subject panel (113 MTurk subjects x 7 cells).
 Model (single-recipient case of Prop. 2.4.33):  l = logit(pi) = a + (1-sigma)[log theta - log(1+lam*nu)],  a = sigma*logit(B).
 theta = net price per donated package, nu = packages received per donated package (impact), W = $2.
 Observed integer gift g is interval-censored: g=j  <=>  pi in (theta(j-.5)/W, theta(j+.5)/W); upper cap Gmax per cell.

@@ -45,7 +45,7 @@ Run time: about two minutes for sim01-sim04; sim05-sim07 take roughly 5-10 minut
 ## Added 26 Oct: external data and calibration
 | File | Content |
 |---|---|
-| `data_external/diederich_etal_dataverse/` | replication package of Diederich-Eckel-Epperson-Goeschl-Grossman (Exp. Econ., forthcoming); WS panel 113 subjects x 7 cells |
+| `data_external/diederich_etal_dataverse/` | replication data of Diederich-Eckel-Epperson-Goeschl-Grossman (Exp. Econ. 25, 734-758, 2022; heiDATA doi:10.11588/DATA/GANTNY, v1.1, restricted access); WS panel 113 subjects x 7 cells |
 | `data_external/dictator_take_option_xlsx/`, `dictator_charity_csv/` | other packages supplied; not used (no price/impact variation) |
 | `sim10_diederich_estimation.py` | interval-censored (ordered-probit-type) likelihood for (sigma, lambda, B, s), variants mix/frame -> `data/diederich_estimates.csv` |
 | `sim10b_diederich_profile.py` | sigma by format, LR for sigma = 1, profile likelihood over lambda -> `data/diederich_sigma_by_format.csv`, `data/diederich_profile_lambda.csv` |
