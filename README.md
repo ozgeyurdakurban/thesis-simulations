@@ -75,3 +75,8 @@ automatically).
 Özgün kod katkılarım **MIT**, özgün metinlerim ve yaratıcı içeriklerim **CC BY 4.0** kapsamındadır. Üçüncü taraf içerikler kendi koşullarını korur. [Kapsam ve tam metinler](LICENSE.md).
 
 My original code contributions are licensed under **MIT**; my original text and creative content under **CC BY 4.0**. Third-party material retains its own terms. See [scope and full texts](LICENSE.md).
+
+
+## Update: general CES model (`ces_model/`)
+
+The folder `ces_model/` holds the simulations of the general CES model with impact weight (`sigma`, `lambda`): solver validation, contributions by position, regime maps, interiority ceilings and positional orderings (see `ces_model/README.md`). The scripts in the repository root belong to the earlier Cobb-Douglas version of the chapter.
