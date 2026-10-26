@@ -27,6 +27,8 @@ The equilibrium is the limit of monotone best-response iteration started from `c
 | `sim05_montecarlo.py` | heterogeneous `B_i ~ Beta`: position means, Pr(leaf > centre), corner frequencies, social efficiency | `figures/fig14_*.png`, `data/montecarlo.csv` |
 | `sim06_power.py` | power and size of the equal-shares test of `sigma = 1` and of the leaf > centre test, by number of groups | `figures/fig15_power.png`, `data/power.csv` |
 | `sim07_estimation.py` | minimum-distance recovery of `(B, sigma, lambda)` under misspecification | `figures/fig16_*.png`, `data/estimation.csv` |
+| `sim08_rebate_match.py` | rebate/match design: closed form vs direct maximization, exact recovery of `(sigma, lambda, B)`, equal-price net-transfer ratio | `data/rebate_match.csv` |
+| `sim09_rebate_match_power.py` | noisy recovery of `(sigma, lambda)` from the rebate/match cells (individual and population level); constant-gross-contribution rule through the same estimator | `data/rebate_match_power.csv`, `data/rebate_match_pooled.csv` |
 
 ## Run
 
@@ -34,6 +36,17 @@ The equilibrium is the limit of monotone best-response iteration started from `c
 pip install numpy scipy matplotlib
 python sim01_validation.py && python sim02_positions.py && python sim03_regimes.py && python sim04_orderings.py
 python sim05_montecarlo.py && python sim06_power.py && python sim07_estimation.py
+python sim08_rebate_match.py && python sim09_rebate_match_power.py
 ```
 
 Run time: about two minutes for sim01-sim04; sim05-sim07 take roughly 5-10 minutes (sim07 is the longest).
+
+
+## Added 26 Oct: external data and calibration
+| File | Content |
+|---|---|
+| `data_external/diederich_etal_dataverse/` | replication package of Diederich-Eckel-Epperson-Goeschl-Grossman (Exp. Econ., forthcoming); WS panel 113 subjects x 7 cells |
+| `data_external/dictator_take_option_xlsx/`, `dictator_charity_csv/` | other packages supplied; not used (no price/impact variation) |
+| `sim10_diederich_estimation.py` | interval-censored (ordered-probit-type) likelihood for (sigma, lambda, B, s), variants mix/frame -> `data/diederich_estimates.csv` |
+| `sim10b_diederich_profile.py` | sigma by format, LR for sigma = 1, profile likelihood over lambda -> `data/diederich_sigma_by_format.csv`, `data/diederich_profile_lambda.csv` |
+| `sim09` (extended) | noise grid adds s = 1.2, 2.5; pooled results for s = 2.5 with N = 113 and 1000 (env POOLED_ONLY, POOL_SETTINGS) |
