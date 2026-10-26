@@ -1,0 +1,10 @@
+check,value
+best_response_max_abs_error,1.094e-05
+best_response_draws,3000
+K_closed_max_abs_error,2.771e-13
+K_closed_interior_draws,2679
+star_closed_max_abs_error,2.736e-13
+star_closed_interior_draws,1684
+lo_hi_max_gap,1.409e-12
+draws_with_corner,11468
+uniqueness_draws,16000
